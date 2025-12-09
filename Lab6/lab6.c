@@ -1,58 +1,25 @@
 #include <stdio.h>
 
 int main() {
-    int n;
-    printf("Nhap so luong phan tu cua mang: ");
-    scanf("%d", &n);
+    int a[10];
+    int i, tong = 0;
 
-    int arr[n];
-    printf("Nhap %d phan tu cua mang: ", n);
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-    }
-
-    // Bai 1: Trung binh cac so chia het cho 3
-    int sumDiv3 = 0;
-    int countDiv3 = 0;
-    for (int i = 0; i < n; i++) {
-        if (arr[i] % 3 == 0) {
-            sumDiv3 += arr[i];
-            countDiv3++;
-        }
-    }
-    if (countDiv3 > 0) {
-        double avgDiv3 = (double)sumDiv3 / countDiv3;
-        printf("Trung binh tong cac so chia het cho 3: %.2lf\n", avgDiv3);
-    } else {
-        printf("Khong co so nao chia het cho 3 trong mang.\n");
+    // Nhập 10 số
+    printf("Nhap 10 so:\n");
+    for (i = 0; i < 10; i++) {
+        printf("a[%d] = ", i);
+        scanf("%d", &a[i]);
+        tong += a[i];   // cộng dồn vào tổng
     }
 
-    // Bai 2: Tim gia tri lon nhat va nho nhat
-    int maxVal = arr[0];
-    int minVal = arr[0];
-    for (int i = 1; i < n; i++) {
-        if (arr[i] > maxVal) maxVal = arr[i];
-        if (arr[i] < minVal) minVal = arr[i];
-    }
-    printf("Gia tri nho nhat: %d\n", minVal);
-    printf("Gia tri lon nhat: %d\n", maxVal);
-
-    // Bai 3: Sap xep mang giam dan (bubble sort)
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] < arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
+    // Xuất mảng
+    printf("\nMang vua nhap:\n");
+    for (i = 0; i < 10; i++) {
+        printf("%d ", a[i]);
     }
 
-    printf("Mang sau khi sap xep giam dan: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
+    // Xuất tổng
+    printf("\n\nTong cua 10 so la: %d\n", tong);
 
     return 0;
 }
